@@ -1,55 +1,45 @@
-"use client"
+"use client";
 import "./Login.css";
 import React, { useState } from "react";
+import axios from "axios";
 
-
-export default function Login() {
-
-  
-	const [formData, setFormData] = useState({
-    email: '',
-    password: '',
+export default function LoginDoctor() {
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
   });
-
-  
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setFormData((prevData) => ({
       ...prevData,
-      [name]: value
+      [name]: value,
     }));
   };
 
-const handleSubmit = (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
-    const patientData={
-  
-    "email": formData.email,
-    "password": formData.password,
-  
-}
-Axios({
-  method: "post",
-  url: "http://localhost:9091/authenticate/patient/register",
-  data: patientData,
-  headers: { "Access-Control-Allow-Origin": "*" },
-}).then(function (response) {
-  console.log(response)
-});
-
-    
-    console.log(response);
-  };  
+    const doctorData = {
+      email: formData.email,
+      password: formData.password,
+    };
+    axios({
+      method: "post",
+      url: "http://localhost:9091/authenticate/doctor/login",
+      data: doctorData,
+      headers: { "Access-Control-Allow-Origin": "*" },
+    }).then(function (response) {
+      console.log(response);
+    });
+  };
   return (
-    
     <div>
-      <h2>Patient Login</h2>
+      <h2>Doctor Login</h2>
       <div className="container" id="container">
         <div className="form-container sign-up-container">
           <form action="#">
             <h1>Create Account</h1>
-            
+
             <button>Sign Up</button>
           </form>
         </div>
@@ -68,8 +58,19 @@ Axios({
               </a>
             </div>
             <span>or use your account</span>
-            <input name="email" placeholder="Email" value={formData.email} onChange={handleInputChange}/>
-            <input name= "password" type="password" placeholder="Password" value={formData.password} onChange={handleInputChange}/>
+            <input
+              name="email"
+              placeholder="Email"
+              value={formData.email}
+              onChange={handleInputChange}
+            />
+            <input
+              name="password"
+              type="password"
+              placeholder="Password"
+              value={formData.password}
+              onChange={handleInputChange}
+            />
             <a href="#">Forgot your password?</a>
             <button onClick={handleSubmit}>Sign In</button>
           </form>
@@ -97,7 +98,7 @@ Axios({
       </div>
 
       <footer>
-        <p>By VIT ke Bandar</p>
+        <p>By VIT ke Students</p>
       </footer>
     </div>
   );

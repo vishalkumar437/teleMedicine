@@ -11,6 +11,8 @@ export default function PatientRegister() {
     password: "",
     phoneNo: "",
     lastName: "",
+    age: "",
+    gender: "",
   });
 
   const handleInputChange = (event) => {
@@ -29,6 +31,8 @@ export default function PatientRegister() {
       email: formData.email,
       phoneNo: formData.phoneNo,
       password: formData.password,
+      age: formData.age,
+      gender: formData.gender,
     };
 
     Axios({
@@ -37,7 +41,7 @@ export default function PatientRegister() {
       data: patientData,
       headers: { "Access-Control-Allow-Origin": "*" },
     }).then(function (response) {
-      console.log(response)
+      console.log(response);
     });
   };
   return (
@@ -75,6 +79,20 @@ export default function PatientRegister() {
               type="password"
               placeholder="Password"
               value={formData.password}
+              onChange={handleInputChange}
+            />
+            <input
+              name="age"
+              type="text"
+              placeholder="age"
+              value={formData.age}
+              onChange={handleInputChange}
+            />
+            <input
+              name="gender"
+              type="text"
+              placeholder="Gender"
+              value={formData.gender}
               onChange={handleInputChange}
             />
           </form>
