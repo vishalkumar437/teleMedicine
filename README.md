@@ -1,2 +1,1 @@
 # teleMedicine
-Hospital Medicine
