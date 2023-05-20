@@ -2,12 +2,15 @@
 import "./Login.css";
 import React, { useState } from "react";
 import axios from "axios";
+import { useRouter } from "next/router";
 
 export default function LoginPatient() {
   const [formData, setFormData] = useState({
     email: "",
     password: "",
   });
+
+  const router = useRouter();
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -31,6 +34,7 @@ export default function LoginPatient() {
       headers: { "Access-Control-Allow-Origin": "*" },
     }).then(function (response) {
       console.log(response);
+      router.push("/patient_dashboard")
     });
   };
   return (
