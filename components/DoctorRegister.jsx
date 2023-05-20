@@ -53,8 +53,16 @@ export default function PatientRegister() {
                 }
             ]
         }
+        Axios({
+          method: "post",
+          url: "http://localhost:9091/authenticate/doctor/register",
+          data: patientData,
+          headers: { "Access-Control-Allow-Origin": "*" },
+        }).then(function (response) {
+          console.log(response)
+        });
         
-        console.log(formData);
+        console.log(response);
       };
     
       

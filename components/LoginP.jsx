@@ -23,7 +23,7 @@ export default function Login() {
 
 const handleSubmit = (event) => {
     event.preventDefault();
-    const doctorData={
+    const patientData={
   
     "email": formData.email,
     "password": formData.password,
@@ -31,8 +31,8 @@ const handleSubmit = (event) => {
 }
 Axios({
   method: "post",
-  url: "http://localhost:9091/authenticate/doctor/register",
-  data: doctorData,
+  url: "http://localhost:9091/authenticate/patient/register",
+  data: patientData,
   headers: { "Access-Control-Allow-Origin": "*" },
 }).then(function (response) {
   console.log(response)
@@ -44,7 +44,7 @@ Axios({
   return (
     
     <div>
-      <h2>Doctor Login</h2>
+      <h2>Patient Login</h2>
       <div className="container" id="container">
         <div className="form-container sign-up-container">
           <form action="#">
@@ -97,7 +97,7 @@ Axios({
       </div>
 
       <footer>
-        <p>By VIT ke Students</p>
+        <p>By VIT ke Bandar</p>
       </footer>
     </div>
   );

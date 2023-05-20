@@ -31,24 +31,14 @@ export default function PatientRegister() {
       password: formData.password,
     };
 
-
     Axios({
-      method: 'post',
-      url: 'http://localhost:9091/authenticate/patient/register',
+      method: "post",
+      url: "http://localhost:9091/authenticate/patient/register",
       data: patientData,
-      headers: {"Access-Control-Allow-Origin": "*"}
-      
-    }) .then(function (response) {
-      console.log(response).catch(function (error) {
-        console.log(error);
-        })
-      });
-	
-	 
-	  
-	  
-	  
-    
+      headers: { "Access-Control-Allow-Origin": "*" },
+    }).then(function (response) {
+      console.log(response)
+    });
   };
   return (
     <div>
